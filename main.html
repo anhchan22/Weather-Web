@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Web</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="navigation-tabs">
+            <div class="tab-container">
+                <div class="tab-list">
+                    <div class="tab-list-top">
+                        <div class="tab-item active" >
+                          <i class="fa-solid fa-house"></i>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fa-solid fa-calendar"></i>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                    </div>
+                    <div class="tab-list-bottom">
+                        <div class="tab-item" style="font-size: 30px;">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="content-container1">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" name="" id="" placeholder="Search City...">
+                    </div>
+                    <div class="main-board">
+                        <div class="main-board-header">
+                            
+                            
+                        </div>
+                        <div class="main-board-content-container">
+                            <div class="main-board-content1">
+                                <div class="location">
+                                    <i class="fa-solid fa-location-dot" style="padding-left: 10px;"></i>
+                                    <div class="city-name">Ha Noi</div>
+                                    <div>,</div>
+                                    <div class="country-name">VietNam</div>
+                                </div>
+                                <div class="dateTimeLocal">
+                                    <!-- <div class="time">16:10:20</div> -->
+                                        <div class="dayOfWeek" style="font-size: 35px; font-weight: bold;">Monday</div>
+                                        <div class="dayMonthYear">
+                                            24 Dec, 2024
+                                        </div>
+                                </div>
+
+                                <div class="weather-today">
+                                    <div class="temperature">
+                                        <div class="temperature-value temperature-temp">26.0</div>
+                                        <div>
+                                            <div style="font-size: 30px; font-weight: normal;">o</div>
+                                        </div>
+                                        <div class="temperature-unit">C</div>
+                                    </div>
+                                    <div class="status">
+                                        High <span class="temperature-max temperature-value">27.0</span>, Low <span class="temperature-min temperature-value">12.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-board-content2">
+                                <div class="temperature-mode-container">
+                                    <div class="temperature-mode">
+                                        <div class="kelvin-mode">K</div>
+                                        <div class="celsius-mode  temperature-mode-active">C</div>
+                                    </div>
+                                </div>
+                                <div class="weather-icon" style="display: flex; align-items: flex-end; padding-top: 60px;">
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                     <!-- <img style="border-radius: 20px; background-color: black; width: 200px; height: auto;" src="resources/icons8-windy-weather.gif" alt=""> -->
+                                </div>
+                                <div class="weather-forecast" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-end;">
+                                    <div class="weather-overview" style="font-size: 40px;">Cloudy</div> 
+                                    <div class="weather-feels-like" style="font-weight: 300;">Feels Like <span class="temperature-feels-like temperature-value">27.0</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="today-week">
+                        <div class="today-week-container1">
+                            <div class="today-week-header">Today / Week</div>
+                            <div class="today-weather-forecast">
+                                <div class="today-weather-forecast-item">
+                                    <div class="today-weather-forecast-item-hour" style="font-size: 20px;">12H</div>
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                    <div class="today-weather-forecast-item-temparature">
+                                        <span class="temperature-value" style="font-size: 20px;">26.0</span>
+                                        <span style="font-size: 10px;">o</span>
+                                    </div>
+                                </div>
+                                <div class="today-weather-forecast-item">
+                                    <div class="today-weather-forecast-item-hour" style="font-size: 20px;">12H</div>
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                    <div class="today-weather-forecast-item-temparature">
+                                        <span class="temperature-value" style="font-size: 20px;">26.0</span>
+                                        <span style="font-size: 10px;">o</span>
+                                    </div>
+                                </div>
+                                <div class="today-weather-forecast-item">
+                                    <div class="today-weather-forecast-item-hour" style="font-size: 20px;">12H</div>
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                    <div class="today-weather-forecast-item-temparature">
+                                        <span class="temperature-value" style="font-size: 20px;">26.0</span>
+                                        <span style="font-size: 10px;">o</span>
+                                    </div>
+                                </div>
+                                <div class="today-weather-forecast-item">
+                                    <div class="today-weather-forecast-item-hour" style="font-size: 20px;">12H</div>
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                    <div class="today-weather-forecast-item-temparature">
+                                        <span class="temperature-value" style="font-size: 20px;">26.0</span>
+                                        <span style="font-size: 10px;">o</span>
+                                    </div>
+                                </div>
+                                <div class="today-weather-forecast-item">
+                                    <div class="today-weather-forecast-item-hour" style="font-size: 20px;">12H</div>
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                    <div class="today-weather-forecast-item-temparature">
+                                        <span class="temperature-value" style="font-size: 20px;">26.0</span>
+                                        <span style="font-size: 10px;">o</span>
+                                    </div>
+                                </div>
+                                <div class="today-weather-forecast-item">
+                                    <div class="today-weather-forecast-item-hour" style="font-size: 20px;">12H</div>
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                    <div class="today-weather-forecast-item-temparature">
+                                        <span class="temperature-value" style="font-size: 20px;">26.0</span>
+                                        <span style="font-size: 10px;">o</span>
+                                    </div>
+                                </div>
+                                <div class="today-weather-forecast-item">
+                                    <div class="today-weather-forecast-item-hour" style="font-size: 20px;">12H</div>
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                    <div class="today-weather-forecast-item-temparature">
+                                        <span class="temperature-value" style="font-size: 20px;">26.0</span>
+                                        <span style="font-size: 10px;">o</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tomorrow-weather-forecast">
+
+                            </div>
+                        </div>
+                        <div class="today-week-container2">
+                            <div class="sun-information-container">
+                                <div class="sun-information">
+                                    <div class="sun-information-header">Sunrise</div>
+                                    <div class="sun-rise-hour sun-information-content">6:45</div>
+                                </div>
+                                <div class="sun-information">
+                                    <div class="sun-information-header">Sunset</div>
+                                    <div class="sun-set-hour sun-information-content">17:45</div>
+                                </div>
+                                <div class="sun-information">
+                                    <div class="sun-information-header">Length of day</div>
+                                    <div class="length-of-day sun-information-content">10h 23m</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-container2">
+                    <div class="User">
+                        <div class="user-item">
+                          <i class="fa-solid fa-circle-user"></i>
+                          <span class="user-name" style="margin-left: 10px; font-size: 13px;">User Name</span>
+                        </div>
+                    </div>
+                    <div class="today-highlight-container" style="padding: 10px 10px 10px 10px;">
+                      <div>Today Highlight</div>
+                      <div class="today-highlight-content">
+                        <div class="content-item">
+                          <span>Chance of Rain</span>
+                          <div>
+
+                          </div>
+                        </div>
+                        <div class="content-item">
+                          <span>UV Index</span>
+                          <div>
+
+                          </div>
+                        </div>
+                        <div class="content-item">
+                          <span>Wind Status</span>
+                          <div>
+
+                          </div>
+                        </div>
+                        <div class="content-item">
+                          <span>Humidity</span>
+                          <div>
+
+                          </div>
+                        </div>
+                      </div>
+                        <div id="container" style="width: 100%; height: 380px;"></div>
+                    </div>
+                    <div class="other-cities">
+                        <div class="other-cities-header">Other Cities</div>
+                        <div class="other-cities-content-container">
+                            <div class="other-cities-item">
+                                <div class="temp">14°</div>
+                                <div class="local">USA</div>
+                                <i class="fa-solid fa-cloud-sun"></i>
+                            </div>
+                            <div class="other-cities-item">
+                                <div class="temp">27°</div>
+                                <div class="local">Dubai - UAE</div>
+                                <i class="fa-solid fa-cloud-sun"></i>
+                            </div>
+                            <div class="other-cities-item">
+                                <div class="temp">16°</div>
+                                <div class="local">China Nuevo</div>
+                                <i class="fa-solid fa-cloud-sun"></i>
+                            </div>
+                            <div class="other-cities-item">
+                                <div class="temp">26°</div>
+                                <div class="local">Canada</div>
+                                <i class="fa-solid fa-cloud-sun"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div style="margin-left: 10px;"> Notice </div>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-message">Tên thành phố không hợp lệ.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/weatherMain.js"></script>
+    <script src="js/tabHandler.js"></script>
+</body>
+
+</html>
