@@ -20,7 +20,11 @@ export async function getWeatherData(city) {
             weatherDescription: data.weather[0].description,
             icon: data.weather[0].icon,
             humidity: data.main.humidity,
-            windSpeed: data.wind.speed
+            windSpeed: data.wind.speed,
+            windDirection: data.wind.deg, // Wind direction in degrees
+            timezone: data.timezone, // Timezone offset in seconds
+            sunrise: data.sys.sunrise,
+            sunset: data.sys.sunset
         };
     } catch (error) {
         console.error('Error fetching weather data:', error);

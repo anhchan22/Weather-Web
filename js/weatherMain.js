@@ -1,4 +1,4 @@
-import { searchWeather } from './weatherUI.js';
+import { searchWeather, initializeDateTime } from './weatherUI.js';
 
 // Khởi tạo chức năng tìm kiếm khi trang được tải
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Search input not found');
         return;
     }
+    
+    // Khởi tạo đồng hồ thời gian thực
+    initializeDateTime();
     
     // Xử lý khi nhấn Enter trong ô tìm kiếm
     searchInput.addEventListener('keypress', function(e) {

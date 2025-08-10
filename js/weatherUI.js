@@ -1,7 +1,13 @@
 import { getWeatherData } from './weatherAPI.js';
 
+// Biến global để lưu timezone của thành phố hiện tại
+let currentTimezone = 0; // Timezone offset in seconds
+
 // Hàm cập nhật thông tin thời tiết lên giao diện
 export function updateWeatherDisplay(weatherData) {
+    // Lưu timezone của thành phố
+    currentTimezone = weatherData.timezone;
+    
     // Cập nhật tên thành phố và quốc gia
     const cityName = document.querySelector('.city-name');
     const countryName = document.querySelector('.country-name');
@@ -30,6 +36,9 @@ export function updateWeatherDisplay(weatherData) {
     
     // Cập nhật icon thời tiết
     updateWeatherIcon(weatherData.weather, weatherData.icon);
+    
+    // Cập nhật thông tin bổ sung
+    updateAdditionalInfo(weatherData);
     
     // Cập nhật ngày và giờ hiện tại
     updateDateTime();
@@ -73,20 +82,100 @@ function updateWeatherIcon(weather, iconCode) {
     }
 }
 
+// Hàm cập nhật thông tin bổ sung (sunrise, sunset, humidity, wind)
+function updateAdditionalInfo(weatherData) {
+    // Cập nhật Sunrise
+    const sunriseElement = document.querySelector('.sun-rise-hour');
+    if (sunriseElement && weatherData.sunrise) {
+        const sunriseTime = new Date(weatherData.sunrise * 1000);
+        const utc = sunriseTime.getTime() + (sunriseTime.getTimezoneOffset() * 60000);
+        const localSunrise = new Date(utc + (currentTimezone * 1000));
+        const hours = localSunrise.getHours().toString().padStart(2, '0');
+        const minutes = localSunrise.getMinutes().toString().padStart(2, '0');
+        sunriseElement.textContent = `${hours}:${minutes}`;
+    }
+    
+    // Cập nhật Sunset
+    const sunsetElement = document.querySelector('.sun-set-hour');
+    if (sunsetElement && weatherData.sunset) {
+        const sunsetTime = new Date(weatherData.sunset * 1000);
+        const utc = sunsetTime.getTime() + (sunsetTime.getTimezoneOffset() * 60000);
+        const localSunset = new Date(utc + (currentTimezone * 1000));
+        const hours = localSunset.getHours().toString().padStart(2, '0');
+        const minutes = localSunset.getMinutes().toString().padStart(2, '0');
+        sunsetElement.textContent = `${hours}:${minutes}`;
+    }
+    
+    // Tính Length of day
+    const lengthElement = document.querySelector('.length-of-day');
+    if (lengthElement && weatherData.sunrise && weatherData.sunset) {
+        const dayLength = weatherData.sunset - weatherData.sunrise;
+        const hours = Math.floor(dayLength / 3600);
+        const minutes = Math.floor((dayLength % 3600) / 60);
+        lengthElement.textContent = `${hours}h ${minutes}m`;
+    }
+    
+    // Cập nhật Humidity trong Today Highlight
+    const humidityElements = document.querySelectorAll('.content-item');
+    humidityElements.forEach(item => {
+        const span = item.querySelector('span');
+        if (span && span.textContent === 'Humidity') {
+            const div = item.querySelector('div');
+            if (div) {
+                div.innerHTML = `<span style="font-size: 24px; font-weight: bold;">${weatherData.humidity}%</span>`;
+            }
+        }
+    });
+    
+    // Cập nhật Wind Status trong Today Highlight
+    humidityElements.forEach(item => {
+        const span = item.querySelector('span');
+        if (span && span.textContent === 'Wind Status') {
+            const div = item.querySelector('div');
+            if (div && weatherData.windSpeed !== undefined) {
+                const windSpeedKmh = Math.round(weatherData.windSpeed * 3.6); // Convert m/s to km/h
+                const windDirection = getWindDirection(weatherData.windDirection);
+                div.innerHTML = `<span style="font-size: 20px; font-weight: bold;">${windSpeedKmh} km/h</span><br><span style="font-size: 14px;">${windDirection}</span>`;
+            }
+        }
+    });
+}
+
+// Hàm chuyển đổi độ sang hướng gió
+function getWindDirection(degrees) {
+    if (degrees === undefined) return 'N/A';
+    
+    const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+    const index = Math.round(degrees / 22.5) % 16;
+    return directions[index];
+}
+
 // Hàm cập nhật ngày giờ hiện tại
 function updateDateTime() {
+    // Tính toán thời gian địa phương của thành phố
     const now = new Date();
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000); // UTC time
+    const localTime = new Date(utc + (currentTimezone * 1000)); // Local time của thành phố
+    
+    // Cập nhật thời gian
+    const time = document.querySelector('.time');
+    if (time) {
+        const hours = localTime.getHours().toString().padStart(2, '0');
+        const minutes = localTime.getMinutes().toString().padStart(2, '0');
+        const seconds = localTime.getSeconds().toString().padStart(2, '0');
+        time.textContent = `${hours}:${minutes}:${seconds}`;
+    }
     
     // Cập nhật ngày trong tuần
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const dayOfWeek = document.querySelector('.dayOfWeek');
-    if (dayOfWeek) dayOfWeek.textContent = days[now.getDay()];
+    if (dayOfWeek) dayOfWeek.textContent = days[localTime.getDay()];
     
     // Cập nhật ngày tháng năm
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const dayMonthYear = document.querySelector('.dayMonthYear');
     if (dayMonthYear) {
-        dayMonthYear.textContent = `${now.getDate()} ${months[now.getMonth()]}, ${now.getFullYear()}`;
+        dayMonthYear.textContent = `${localTime.getDate()} ${months[localTime.getMonth()]}, ${localTime.getFullYear()}`;
     }
 }
 
@@ -124,4 +213,18 @@ export async function searchWeather(cityName) {
         console.error('Search failed:', error);
         showError('Không tìm thấy thành phố. Vui lòng kiểm tra lại tên thành phố.');
     }
+}
+
+// Khởi tạo cập nhật thời gian tự động
+export function initializeDateTime() {
+    // Khởi tạo timezone mặc định cho Hà Nội (UTC+7 = 7*3600 = 25200 seconds)
+    if (currentTimezone === 0) {
+        currentTimezone = 25200; // UTC+7 for Vietnam
+    }
+    
+    // Cập nhật ngay lập tức
+    updateDateTime();
+    
+    // Cập nhật mỗi giây
+    setInterval(updateDateTime, 1000);
 }

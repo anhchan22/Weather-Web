@@ -6,30 +6,22 @@
     font-family: "Inter", system-ui;
 }
 
-:root {
-    --body-backgroundColor-darkMode: #060C1A;
-    --body-backgroundColor-lightMode: white;
-}
-
-.wrapper {
-    padding: 20px;
-}
 
 .navigation-tabs {
-    background-color: var(--body-backgroundColor-darkMode);
-    height: 100%;
+    background-color: #060C1A;
+    height: 100vh;
     /* border-radius: 15px; */
     padding: 20px;
     display: grid;
-    grid-template-columns: 5% 95%;
-    grid-template-rows: 100%;
+    grid-template-columns: 0.0500fr 0.9500fr;
+    grid-template-rows: 1.0000fr;
     gap: 30px;
 }
 
 /* Tab container */
 .tab-container {
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
     display: grid;
     place-items: center;
     
@@ -112,8 +104,10 @@
     /* margin-left: 20px; */
     /* border-radius: 20px; */
     display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 1.2fr 0.8fr;
     gap: 30px;
+    min-height: 0;
+    min-width: 0;
     /* gap: 20px; */
 }
 
@@ -121,9 +115,10 @@
 .content-container1 {
     width: 100%;
     display: grid;
-    grid-template-rows: 5% 50% 45%;
+    grid-template-rows: 0.05fr 0.4fr 0.4fr;
     height: 100%;
     gap: 30px;
+    min-width: 0;
     /* padding: 0 20px; */
     /* gap: 30px; */
     /* max-width: 750px; */
@@ -277,23 +272,23 @@
 }
 
 .today-week {
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
     background-color: #0E1421;
     border-radius: 20px;
     padding: 25px;
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 0.7fr 0.3fr;
     /* gap: 20px; */
 }
 
 
 .today-week-container1 {
     display: grid;
-    grid-template-rows: 10% 60% 30%;
+    grid-template-rows: 0.1000fr 0.6000fr 0.3000fr;
     /* grid-template-columns: repeat(7, 1fr); */
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     /* max-width: 350px; */
     /* gap: 10px; */
 }
@@ -312,7 +307,7 @@
     display: grid;
     gap: 8px;
     grid-template-columns: repeat(7, 1fr);
-    height: 100%;
+    /* height: 100%; */
 }
 
 .today-weather-forecast-item {
@@ -324,8 +319,8 @@
     padding: 10px 10px;
     align-items: center;
     border-radius: 15px;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     cursor: pointer;
     transition: all 0.4s ease;
 }
@@ -376,32 +371,14 @@
     font-size: 30px;
 }
 
-/* .user-infor {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    overflow: hidden;
-}
-
-.user-infor{
-    background-color: rgba(255, 255, 255, 0.1);
-    flex-grow: 0.3;
-    margin-top: 10px;
-    border-radius: 30px;
-    width: 30%;
-} */
-
 .content-container2 {
-    width: 100;
+    width: 100%;
     display: grid;
-    grid-template-rows: 5% 50% 45%;
+    grid-template-rows: 0.0500fr 0.5000fr 0.4500fr;
     height: 100%;
     padding: 0 20px;
+    gap: 20px;
+    min-width: 0;
     /* gap: 10px; */
     /* margin-top: 20px; */
 }
@@ -438,8 +415,8 @@
 .today-highlight-content {
     /* margin: 10px; */
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 0.5000fr 0.5000fr;
+    grid-template-rows: 0.5000fr 0.5000fr;
     /* gap: 20px; */
     /* justify-items: stretch;
     align-items: stretch; */
@@ -467,8 +444,8 @@
 
 .other-cities-content-container {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 0.5000fr 0.5000fr;
+    grid-template-rows: 0.5000fr 0.5000fr;
     height: 100%;
     /* gap: 30px; */
     /* margin-top: 25px; */
@@ -551,4 +528,22 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 20px;
+    }
+    
+    .content-container2 {
+        padding: 0 10px;
+    }
+    
+    .navigation-tabs {
+        gap: 20px;
+        padding: 15px;
+    }
 }
