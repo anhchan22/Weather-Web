@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Web</title>
-    <link rel="stylesheet" href="main_modified.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> -->
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="navigation-tabs">
+        <div class="wrapper-container">
             <div class="tab-container">
                 <div class="tab-list">
                     <div class="tab-list-top">
@@ -35,9 +32,6 @@
                         </div>
                     </div>
                     <div class="tab-list-bottom">
-                        <div class="tab-item" style="font-size: 30px;">
-                            <i class="fa-solid fa-moon"></i>
-                        </div>
                         <div class="tab-item">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </div>
@@ -48,10 +42,10 @@
                 <div class="content-container1">
                     <div class="search-bar">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" name="" id="" placeholder="Search City...">
+                        <input type="text" placeholder="Search City...">
                     </div>
-                    <div class="main-board">
-                        <div class="main-board-content1">
+                    <div class="weather-today">
+                        <div class="weather-today-container1">
                             <div class="location">
                                 <i class="fa-solid fa-location-dot" style="padding-left: 10px;"></i>
                                 <div class="city-name">Ha Noi</div>
@@ -61,30 +55,28 @@
                             <div class="dateTimeLocal">
                                 <div class="time" style="font-size: 18px; font-weight: normal; margin-bottom: 5px;">
                                     16:10:20</div>
-                                <div class="dayOfWeek" style="font-size: 35px; font-weight: bold;">Monday</div>
+                                <div class="dayOfWeek" style="font-size: 30px; font-weight: bold;">Monday</div>
                                 <div class="dayMonthYear">
                                     24 Dec, 2024
                                 </div>
                             </div>
 
-                            <div class="weather-today">
+                            <div class="temperature-today">
                                 <div class="temperature">
-                                    <div class="temperature-value temperature-temp">26.0</div>
-                                    <div>
-                                        <div style="font-size: 30px; font-weight: normal;">o</div>
-                                    </div>
+                                    <div class="temperature-value temperature-temp">20</div>
+                                    <div class="temperature-symbol">°</div>
                                     <div class="temperature-unit">C</div>
                                 </div>
                                 <div class="status">
-                                    High <span class="temperature-max temperature-value">27.0</span>, Low <span
-                                        class="temperature-min temperature-value">12.0</span>
+                                    High <span class="temperature-max temperature-value">27.0</span>°, Low <span
+                                        class="temperature-min temperature-value">12.0</span>°
                                 </div>
                             </div>
                         </div>
-                        <div class="main-board-content2">
+                        <div class="weather-today-container2">
                             <div class="temperature-mode-container">
                                 <div class="temperature-mode">
-                                    <div class="kelvin-mode">K</div>
+                                    <div class="kelvin-mode">F</div>
                                     <div class="celsius-mode  temperature-mode-active">C</div>
                                 </div>
                             </div>
@@ -95,7 +87,7 @@
                                 style="display: flex; flex-direction: column; justify-content: center; align-items: flex-end;">
                                 <div class="weather-overview" style="font-size: 40px;">Cloudy</div>
                                 <div class="weather-feels-like" style="font-weight: 300;">Feels Like <span
-                                        class="temperature-feels-like temperature-value">27.0</span></div>
+                                        class="temperature-feels-like temperature-value">27.0</span>°</div>
                             </div>
                         </div>
                     </div>
@@ -107,21 +99,24 @@
                                     <div class="today-weather-forecast-item-hour" style="font-size: 20px;">1PM</div>
                                     <i class="fa-solid fa-cloud-sun"></i>
                                     <div class="today-weather-forecast-item-temparature">
-                                        <span class="temperature-value" style="font-size: 20px;">20°</span>
+                                        <span class="temperature-value" style="font-size: 20px;">20</span>
+                                        <span style="font-size: 16px;">°</span>
                                     </div>
                                 </div>
                                 <div class="today-weather-forecast-item">
                                     <div class="today-weather-forecast-item-hour" style="font-size: 20px;">2PM</div>
                                     <i class="fa-solid fa-cloud-sun"></i>
                                     <div class="today-weather-forecast-item-temparature">
-                                        <span class="temperature-value" style="font-size: 20px;">21°</span>
+                                        <span class="temperature-value" style="font-size: 20px;">21</span>
+                                        <span style="font-size: 16px;">°</span>
                                     </div>
                                 </div>
                                 <div class="today-weather-forecast-item">
                                     <div class="today-weather-forecast-item-hour" style="font-size: 20px;">3PM</div>
                                     <i class="fa-solid fa-cloud-sun"></i>
                                     <div class="today-weather-forecast-item-temparature">
-                                        <span class="temperature-value" style="font-size: 20px;">20°</span>
+                                        <span class="temperature-value" style="font-size: 20px;">20</span>
+                                        <span style="font-size: 16px;">°</span>
 
                                     </div>
                                 </div>
@@ -129,7 +124,8 @@
                                     <div class="today-weather-forecast-item-hour" style="font-size: 20px;">4PM</div>
                                     <i class="fa-solid fa-cloud-sun"></i>
                                     <div class="today-weather-forecast-item-temparature">
-                                        <span class="temperature-value" style="font-size: 20px;">19°</span>
+                                        <span class="temperature-value" style="font-size: 20px;">19</span>
+                                        <span style="font-size: 16px;">°</span>
 
                                     </div>
                                 </div>
@@ -137,7 +133,8 @@
                                     <div class="today-weather-forecast-item-hour" style="font-size: 20px;">5PM</div>
                                     <i class="fa-solid fa-cloud-sun"></i>
                                     <div class="today-weather-forecast-item-temparature">
-                                        <span class="temperature-value" style="font-size: 20px;">18°</span>
+                                        <span class="temperature-value" style="font-size: 20px;">18</span>
+                                        <span style="font-size: 16px;">°</span>
 
                                     </div>
                                 </div>
@@ -145,7 +142,8 @@
                                     <div class="today-weather-forecast-item-hour" style="font-size: 20px;">6PM</div>
                                     <i class="fa-solid fa-cloud-sun"></i>
                                     <div class="today-weather-forecast-item-temparature">
-                                        <span class="temperature-value" style="font-size: 20px;">18°</span>
+                                        <span class="temperature-value" style="font-size: 20px;">18</span>
+                                        <span style="font-size: 16px;">°</span>
 
                                     </div>
                                 </div>
@@ -153,7 +151,8 @@
                                     <div class="today-weather-forecast-item-hour" style="font-size: 20px;">7PM</div>
                                     <i class="fa-solid fa-cloud-sun"></i>
                                     <div class="today-weather-forecast-item-temparature">
-                                        <span class="temperature-value" style="font-size: 20px;">15°</span>
+                                        <span class="temperature-value" style="font-size: 20px;">15</span>
+                                        <span style="font-size: 16px;">°</span>
 
                                     </div>
                                 </div>
@@ -179,14 +178,15 @@
                     </div>
                 </div>
                 <div class="content-container2">
-                    <div class="User">
+                    <div class="user">
                         <div class="user-item">
                             <i class="fa-solid fa-circle-user"></i>
-                            <span class="user-name" style="margin-left: 10px; font-size: 13px;">User Name</span>
+                            <span class="user-name" style="margin-left: 10px; font-size: 13px;">user Name</span>
                         </div>
                     </div>
                     <div class="today-highlight-container">
                         <div>Today Highlight</div>
+
                         <div class="today-highlight-content">
                             <div class="content-item">
                                 <span>Chance of Rain</span>
@@ -213,10 +213,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="container" style="width: 100%; height: 380px;"></div>
                     </div>
                     <div class="other-cities">
-                        <div class="other-cities-header">Other Cities</div>
+                        <div class="other-cities-header" style="margin-bottom: 20px;">Other Cities</div>
                         <div class="other-cities-content-container">
                             <div class="other-cities-item">
                                 <div class="temp">14°</div>
@@ -240,17 +239,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal">
-            <div class="modal-container">
-                <div class="modal-header">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <div style="margin-left: 10px;"> Notice </div>
-                </div>
-                <div class="modal-content">
-                    <div class="modal-message">Tên thành phố không hợp lệ.</div>
                 </div>
             </div>
         </div>

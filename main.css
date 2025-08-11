@@ -6,30 +6,30 @@
     font-family: "Inter", system-ui;
 }
 
-:root {
-    --body-backgroundColor-darkMode: #060C1A;
-    --body-backgroundColor-lightMode: white;
-}
-
 .wrapper {
-    padding: 20px;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.navigation-tabs {
-    background-color: var(--body-backgroundColor-darkMode);
+
+.wrapper-container {
+    background-color: #060C1A;
     height: 100%;
-    /* border-radius: 15px; */
+    max-height: 100vh;
+    border-radius: 10px;
     padding: 20px;
     display: grid;
-    grid-template-columns: 5% 95%;
-    grid-template-rows: 100%;
+    grid-template-columns: 0.0500fr 0.9500fr;
+    /* grid-template-rows: 1.0000fr; */
     gap: 30px;
+    overflow: hidden;
 }
+
 
 /* Tab container */
 .tab-container {
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
     display: grid;
     place-items: center;
     
@@ -107,26 +107,22 @@
 }
 
 .content-wrapper {
-    /* height: 100%; */
-    /* width: 100%; */
-    /* margin-left: 20px; */
-    /* border-radius: 20px; */
     display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 1.2fr 0.8fr;
     gap: 30px;
-    /* gap: 20px; */
+    min-height: 0;
+    min-width: 0;
 }
 
 /* content-container1 */
 .content-container1 {
     width: 100%;
     display: grid;
-    grid-template-rows: 5% 50% 45%;
-    height: 100%;
+    grid-template-rows: 5% 43% 44.5% ;
+    max-height: 100%;
     gap: 30px;
-    /* padding: 0 20px; */
-    /* gap: 30px; */
-    /* max-width: 750px; */
+    min-width: 0;
+    overflow: hidden;
 }
 
 .search-bar {
@@ -139,7 +135,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    /* overflow: hidden; */
 }
 
 .search-bar i {
@@ -158,36 +153,26 @@
     padding-left: 10px;
 }
 
-.main-board {
+.weather-today {
     background: #0E1421;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 30px;
     border-radius: 20px;
-    gap: 20px;
     align-items: center;
 }
 
-.main-board-content1, .main-board-content2{
-    display: grid;
-    grid-template-rows: auto auto auto;
-    justify-content: start;
+.weather-today-container1{
     height: 100%;
-    gap: 20px;
-}
-
-.main-board-content1 {
-    justify-items: start;
-    align-items: start;
-}
-
-.main-board-content2 {
-    justify-items: end;
-    align-items: end;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.weather-today-container2 {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     height: 100%;
 }
@@ -264,7 +249,7 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
 }
 
@@ -276,26 +261,23 @@
     width: 100%;
 }
 
+/* 2 */
 .today-week {
-    width: 100%;
-    height: 100%;
     background-color: #0E1421;
     border-radius: 20px;
     padding: 25px;
     display: grid;
-    grid-template-columns: 70% 30%;
-    /* gap: 20px; */
+    grid-template-columns: 0.7fr 0.3fr;
+    gap: 30px;
 }
 
 
 .today-week-container1 {
     display: grid;
-    grid-template-rows: 10% 60% 30%;
-    /* grid-template-columns: repeat(7, 1fr); */
-    width: 100%;
-    height: 100%;
-    /* max-width: 350px; */
-    /* gap: 10px; */
+    grid-template-rows: 0.1000fr 0.5000fr 0.4000fr;
+    min-width: 0;
+    overflow: hidden;
+    gap: 20px;
 }
 
 .today-week-header {
@@ -305,29 +287,28 @@
 
 .today-weather-forecast {
     background: linear-gradient(30deg, #0E1421, #1D325F, #0E1421);
-    /* margin-top: 20px; */
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 20px;
-    /* overflow: hidden; */
-    display: grid;
-    gap: 8px;
-    grid-template-columns: repeat(7, 1fr);
-    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* min-width: 0; */
 }
 
 .today-weather-forecast-item {
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     background-color: rgba(255, 255, 255, 0.05);
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    border-radius: 15px;
-    width: 100%;
-    height: 100%;
+    border-radius: 10px;
+    font-size: 11px;
     cursor: pointer;
     transition: all 0.4s ease;
+    flex-basis: 12%;
+    min-width: 45px;
 }
 
 .today-weather-forecast-item:hover {
@@ -345,25 +326,26 @@
 
 .tomorrow-weather-forecast {
     background: linear-gradient(30deg, #0E1421, #1D325F, #0E1421);
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     border-radius: 20px;
     height: 100%;
-    /* margin-top: 40px; */
+    margin-top: 30px;
+    height: 60%;
 }
 
+.today-weather-forecast-item i {
+    font-size: 25px;
+    color: #742BEC;
+}
 
 
 .today-week-container2 {
     background-color: #14203A;
     border-radius: 20px;
-    padding: 10px;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-}
-
-.sun-information {
-    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 20px;
 }
 
 .sun-information-header {
@@ -376,37 +358,21 @@
     font-size: 30px;
 }
 
-/* .user-infor {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    overflow: hidden;
-}
-
-.user-infor{
-    background-color: rgba(255, 255, 255, 0.1);
-    flex-grow: 0.3;
-    margin-top: 10px;
-    border-radius: 30px;
-    width: 30%;
-} */
-
+/* Content Container 2 */
 .content-container2 {
-    width: 100;
+    /* width: 100%; */
     display: grid;
-    grid-template-rows: 5% 50% 45%;
+    grid-template-rows: 8% 45% 39% ;
     height: 100%;
     padding: 0 20px;
+    gap: 30px;
+    min-width: 0;
     /* gap: 10px; */
     /* margin-top: 20px; */
 }
 
-.User {
+.user {
+    height: 70%;
     background-color: #0E1421;
     border-radius: 20px;
     width: 55%;
@@ -417,7 +383,13 @@
     padding: 5px 10px;
     cursor: pointer;
     justify-self: end;
-    /* gap: 8px; */
+}
+
+.user-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
 }
 
 .user-item i {
@@ -426,24 +398,23 @@
 }
 
 
-
+/* 3 */
 .today-highlight-container{
+    display: flex;
+    flex-direction: column;
     background: radial-gradient(circle, #162850, #121A2D);
     padding: 10px;
     border-radius: 20px;
-    /* width: 100%; */
-    /* display: inline-block; */
 }
 
 .today-highlight-content {
-    /* margin: 10px; */
+    margin-top: 15px;
+    margin-left: 15px;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
-    /* gap: 20px; */
-    /* justify-items: stretch;
-    align-items: stretch; */
     height: 100%;
+    grid-template-columns: repeat(2, 45%);
+    grid-template-rows: repeat(2, 46%);
+    gap: 20px;
 }
 
 .content-item {
@@ -459,19 +430,19 @@
 
 /* 4 */
 .other-cities {
-    background: var(--body-backgroundColor-darkMode);
-    /* background: radial-gradient(circle, #162850, #121A2D); */
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: #060C1A;
+    padding: 0 20px 0px 20px;
 }
 
 
 .other-cities-content-container {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    gap: 30px;
+    grid-template-columns: 0.5000fr 0.5000fr;
+    grid-template-rows: 0.5000fr 0.5000fr;
     height: 100%;
-    /* gap: 30px; */
-    /* margin-top: 25px; */
 }
 
 .other-cities-item {
@@ -503,52 +474,61 @@
     grid-column: 2 / 3;
 }
 
-/* Thiết lập màu chữ trắng cho biểu đồ */
-.highcharts-title,
-.highcharts-axis-labels text,
-.highcharts-tooltip text {
-    fill: white !important;  /* Đặt màu chữ thành trắng */
-}
+/* Responsive cho màn hình nhỏ */
+@media screen and (max-width: 400px) {
+    .container2 {
+        flex-direction: column;
+    }
+    
+    .box {
+        width: 100%;
+    }
+}   
 
+/* @media (max-width: 1024px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 20px;
+    }
+    
+    .content-container2 {
+        padding: 0 10px;
+    }
+    
+    .wrapper-container {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .today-weather-forecast {
+        padding: 8px 10px;
+        gap: 3px;
+    }
+    
+    .today-weather-forecast-item {
+        padding: 4px 2px;
+        font-size: 10px;
+        border-radius: 8px;
+    }
+} */
 
-.modal {
-    position: absolute;
-    display: none;
-    /* display: flex; */
-    background-color: rgba(0, 0, 0, 0.7);
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    font-size: 30px;
-    justify-content: center;
-}
-
-.modal * {
-    color: black;
-}
-
-.modal-container {
-    background-color: white;
-    width: 40vw;
-    height: 40vh;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20vh;
-    padding: 20px;
-}
-
-.modal-header  {
-    color: black;
-    display: flex;
-    flex-direction: row;
-}
-
-.modal-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
+/* @media (max-width: 768px) {
+    .today-week {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .today-weather-forecast {
+        padding: 8px;
+        gap: 2px;
+    }
+    
+    .today-weather-forecast-item {
+        padding: 3px 1px;
+        font-size: 9px;
+        border-radius: 6px;
+    }
+} */

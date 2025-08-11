@@ -1,6 +1,6 @@
 import { searchWeather, initializeDateTime } from './weatherUI.js';
 
-// Khởi tạo chức năng tìm kiếm khi trang được tải
+// chức năng tìm kiếm khi trang được tải
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('.search-bar input');
     const searchIcon = document.querySelector('.search-bar i');
@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Khởi tạo đồng hồ thời gian thực
     initializeDateTime();
     
-    // Xử lý khi nhấn Enter trong ô tìm kiếm
+    // nhấn Enter
     searchInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             handleSearch();
         }
     });
     
-    // Xử lý khi click vào icon search
+    //click vào icon search
     if (searchIcon) {
         searchIcon.addEventListener('click', handleSearch);
     }
@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
     searchWeather('Ha Noi');
 });
 
-// Thêm sự kiện click để ẩn modal
-document.addEventListener('click', function(e) {
-    const modal = document.querySelector('.modal');
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
+// // Thêm sự kiện click để ẩn modal
+// document.addEventListener('click', function(e) {
+//     const modal = document.querySelector('.modal');
+//     if (e.target === modal) {
+//         modal.style.display = 'none';
+//     }
+// });
